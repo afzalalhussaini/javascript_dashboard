@@ -1,0 +1,1919 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="style.css">
+</head>
+<style>
+  * {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    
+    /* border: 1px solid #000; */
+}
+.main{
+    width: 100%;
+    height: 700px;
+    position: relative;
+    left: 0;
+    top: 0;
+    overflow: hidden;
+    /* background-color: #0717ff; */
+}
+
+.navbar {
+    width: 100%;
+    height: 70px;
+    display: flex;
+    /* overflow: hidden; */
+    /* background-color: blueviolet; */
+    /* border: 2px solid #e70000; */
+}
+.navbar {
+    width: 100%;
+    height: 60px;
+    position: relative;
+    /* border: 1px solid #000; */
+}
+
+.logo_div {
+    width: 30%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.bars {
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.slide_main {
+    width: 350px;
+    position: relative;
+    height: auto;
+    background-color: #edf1f5;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    position: absolute;
+    left: 0;
+    top: 60px;
+    transition: left 0.4s;
+}
+.slide_main h3{
+    text-transform: uppercase;
+    font-size: .8rem;
+    margin: 10px 20px;
+    font-weight: 700;
+    color: #3f6ad8;
+    white-space: nowrap;
+    position: relative;
+}
+.slide_main i{
+    display: flex;
+    position: relative;
+    font-size: 20px;
+    margin-left: 40px;
+    padding: 10px 20px;
+}
+.slide_main a{
+    text-decoration: none;
+    padding-left: 15px;
+    letter-spacing: 3px;
+    font-size: 12px;
+    color: #000;
+    
+}
+
+.dashboardsarr{
+    position: absolute;
+    top: 2%;
+    left: 55%;
+}
+/* .slide_main .dashboardsarr i:hover{
+    background-color: transparent;
+} */
+.minimalarr{
+    position: absolute;
+    top: 14%;
+    left: 55%;
+}
+.slide_main .minimalarr i:hover{
+    background-color: transparent;
+}
+.pagearr{
+    position: absolute;
+    top: 24.5%;
+    left: 55%;
+}
+.slide_main .pagearr i:hover{
+    background-color: transparent;
+    
+}
+.applicationsarr{
+    position: absolute;
+    top: 44%;
+    left: 55%;
+}
+.slide_main .applicationsarr i:hover{
+    background-color: transparent;
+}
+.forumsarr{
+    position: absolute;
+    top: 55.5%;
+    left: 55%;
+}
+.slide_main .forumsarr i:hover{
+    background-color: transparent;
+}
+
+.slide_main i:hover{
+    background-color: #cee3f0;
+    width: 80%;
+    border-radius: 3px;
+}
+.dashboardmenu{
+    margin-left: 22%;
+    margin-top: -80%;
+    position: relative;
+    visibility: hidden;
+}
+.dashboardmenu ul li{
+    list-style: none;
+    padding: 11px 20px;
+    
+}
+.dashboardmenuactive{
+    margin-left: 22%;
+    margin-top: 0%;
+    visibility: visible;
+   
+}
+
+.dashboardmenu ul li:hover{
+    background-color: #cee3f0;
+    width: 90%;
+    border-radius: 3px;
+}
+.pagesmenu{
+    margin-left: 22%;
+    margin-top: -70%;
+    position: relative;
+    /* background-color: #0717ff; */
+    visibility: hidden;
+}
+.pagesmenuactive{
+    margin-left: 22%;
+    margin-top: 0%;
+    visibility: visible;
+}
+.pagesmenu ul li{
+    list-style: none;
+    padding: 11px 20px;
+}
+
+.pagesmenu ul li:hover{
+    background-color: #cee3f0;
+    width: 90%;
+    border-radius: 3px;
+}
+.applicationsmenu{
+    margin-left: 22%;
+    position: relative;
+    /* background-color: red; */
+    margin-top: -70%;
+    visibility: hidden;
+}
+.applicationactive{
+    visibility: visible;
+    margin-top: 0%;
+}
+.applicationsmenu ul li{
+    list-style: none;
+    padding: 11px 20px;
+}
+
+.applicationsmenu li:hover{
+    background-color: #cee3f0;
+    width: 90%;
+    border-radius: 3px;
+}
+
+.dashboardmenu1{
+    margin-left: 10%;
+}
+.applicationsmenu{
+    margin-left: 10%;
+}
+
+.slide_small {
+    width: 100px;
+    height: auto;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    /* background-color: green; */
+    position: absolute;
+    left: 0;
+    top: 60px;
+}
+.slide_small i{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 0;
+    font-size: 20px;
+    color: #000;
+}
+
+.Left {
+    left: -350px;
+}
+.bar_left {
+    width: 50%;
+    height: 100%;
+    display: flex;
+
+    position: relative;
+    /* border: 1px solid #000; */
+}
+
+.notification_circles {
+    width: 45%;
+    height: 100%;
+    display: flex;
+
+    gap: 20px;
+    justify-content: center;
+    /* background-color: aqua; */
+}
+
+.circle_1 {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    align-self: center;
+    display: flex;
+    justify-content: center;
+    border: none;
+    cursor: pointer;
+    /* border: 1px solid #000; */
+}
+
+.circleicon {
+    align-self: center;
+    font-size: 26px;
+    /* color: black; */
+}
+
+#cir_1 {
+    background-color: #d9dadb;
+    color: #0717ff;
+}
+
+#cir_2 {
+    background-color: rgb(214, 146, 146);
+    color: rgb(255, 0, 0);
+}
+
+#cir_3 {
+    background-color: #d9dadb;
+    color: #0717ff;
+}
+
+#cir_4 {
+    background-color: #d9dadb;
+    color: #0717ff;
+}
+
+.logo_parent {
+    width: 280px;
+    height: 100%;
+    /* border: 1px solid #000; */
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    transition: 0.4s;
+}
+
+.img {
+    width: 100px;
+}
+
+.bars {
+    font-size: 25px;
+    cursor: pointer;
+
+}
+
+.menu ul {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+    align-self: center;
+}
+
+.menu ul li {
+    font-size: 20px;
+}
+
+.fa-box {
+    font-size: 20px;
+}
+
+.active {
+    visibility: visible;
+    opacity: 1;
+}
+
+.none {
+    display: none;
+}
+
+
+.width {
+    width: 50px;
+}
+
+.left {
+    margin-left: -200px;
+}
+
+.searchdiv {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    position: relative;
+
+    /* margin-left: 100px; */
+    /* border: 1px solid #0717ff; */
+
+}
+
+.circle_background {
+
+    background-color: wheat;
+    width: 45px;
+    height: 45px;
+    z-index: -2;
+    padding-left: 10px;
+    border-radius: 50%;
+    position: absolute;
+    align-self: center;
+}
+
+.search {
+    font-size: 25px;
+    align-self: center;
+    cursor: pointer;
+    padding-left: 10px;
+    /* margin-left: 200px; */
+}
+
+.search_2 {
+    transition: 0.4s linear;
+    margin-left: 200px;
+    z-index: 2;
+}
+
+.searchbar {
+    width: 0px;
+    height: 45px;
+    align-self: center;
+    position: absolute;
+    border-radius: 40px;
+    padding-left: 20px;
+    border: none;
+    background-color: wheat;
+    /* z-index: -1; */
+    visibility: hidden;
+    transition: 0.4s linear all;
+    /* background-color: #0717ff; */
+}
+
+.visible {
+    visibility: visible;
+    opacity: 1;
+    width: 250px;
+
+    transition: 0.4s linear;
+}
+
+.cross {
+    position: absolute;
+    font-size: 25px;
+    left: 40%;
+    top: 30%;
+    rotate: -120deg;
+    opacity: 0;
+    cursor: pointer;
+    visibility: hidden;
+}
+
+.crossvisible {
+    left: 53%;
+    transition: 0.5s linear;
+    visibility: visible;
+    rotate: 0deg;
+
+    opacity: 1;
+}
+
+.color {
+    color: red;
+    font-size: 30px;
+    background-color: #0717ff;
+}
+
+.menu {
+    width: 75%;
+    height: 100%;
+    display: flex;
+    /* position: absolute; */
+    margin-left: 10%;
+    visibility: hidden;
+    /* border: 1px solid #000; */
+}
+
+.menuvisible {
+    transition: .4s;
+    visibility: visible;
+    opacity: 1;
+
+}
+
+
+.list {
+    cursor: pointer;
+    font-size: 30px;
+}
+
+.bar_right {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    position: relative;
+    /* border: 1px solid blue; */
+}
+
+.dropdown {
+    position: absolute;
+    transition: .4s;
+    top: 0;
+    width: 240px;
+    height: 450px;
+    color: white;
+    opacity: 0;
+    visibility: hidden;
+    /* display: none;  */
+    background-color: black;
+
+}
+
+#drop_1 {
+    left: 0%;
+    width: 100%;
+    height: 350px;
+
+    /* border: 1px solid #000; */
+    background-color: whitesmoke;
+}
+
+#drop_2 {
+    left: 30%;
+    background-color: whitesmoke;
+    width: 50%;
+    height: 350px;
+
+}
+
+.setting_drop {
+    width: 100%;
+    height: 100%;
+    color: #000;
+    /* border: 1px solid #000; */
+}
+
+.row_box2 {
+
+    height: 100%;
+    padding: 20px 20px;
+    gap: 20px;
+    display: flex;
+    flex-direction: column;
+
+}
+
+#drop_3 {
+    left: 50%;
+    width: 50%;
+    height: 350px;
+    background-color: whitesmoke;
+}
+
+/* dropdown sub menu   */
+
+.row_box1-cont {
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+.row_box1 {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    /* justify-content: center; */
+    flex-direction: column;
+    padding: 20px 20px;
+    gap: 20px;
+    /* border: 1px solid #000; */
+}
+
+.row_box1 h4 {
+    font-size: 20px;
+    color: #000;
+    text-align: left;
+
+}
+
+.row_box1 li {
+    font-size: 16px;
+
+    text-align: left;
+    list-style: none;
+    color: #000;
+}
+
+
+#drop2_1 {
+    width: 200px;
+    height: 400px;
+    position: absolute;
+    left: -48%;
+    top: 100%;
+    transition: .4s linear;
+    /* background-color: whitesmoke; */
+}
+
+#drop2_2 {
+    width: 200px;
+    height: 300px;
+    position: absolute;
+    left: -38%;
+    top: 100%;
+    transition: .4s linear;
+    /* background-color: whitesmoke; */
+}
+
+#drop2_3 {
+    width: 200px;
+    height: 300px;
+    position: absolute;
+    left: -5%;
+    top: 100%;
+    transition: .4s linear;
+    /* background-color: whitesmoke; */
+}
+
+#drop2_4 {
+    width: 200px;
+    height: 300px;
+    position: absolute;
+    left: -18%;
+    top: 100%;
+    transition: .4s linear;
+    /* background-color: whitesmoke; */
+}
+
+
+
+.dropdown_1 {
+    position: absolute;
+    transition: .4s;
+    top: 0;
+    width: 240px;
+    height: 450px;
+    color: white;
+    opacity: 0;
+    visibility: hidden;
+    /* display: none;  */
+    /* background-color: black; */
+}
+
+.profile {
+    width: 35%;
+    height: 100%;
+    /* border: 1px solid #000; */
+}
+
+.imge_sec {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    /* background-color: blueviolet; */
+}
+
+.imgeadj {
+    width: 50px;
+    height: 50px;
+    align-self: center;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.profile_drop {
+    display: flex;
+    cursor: pointer;
+}
+
+.arrowdown {
+    font-size: 15px;
+    align-self: center;
+    padding: 10px;
+  
+
+}
+
+.name h4 {
+    font-size: 16px;
+    align-self: center;
+}
+
+.name {
+    width: 80%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.name p {
+    font-size: 14px;
+    align-self: center;
+}
+
+.dropdown_2 {
+
+    position: absolute;
+    transition: .4s;
+    left: 5%;
+    top: 100%;
+    width: 240px;
+    height: 450px;
+    color: white;
+    background-color: #0717ff;
+    visibility: hidden;
+}
+
+.sidebar_button {
+    width: 20%;
+    height: 100%;
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    cursor: pointer;
+    /* background-color: #0717ff; */
+}
+
+.linevertical {
+    width: 1%;
+    height: 80%;
+    align-self: center;
+    background-color: #000;
+}
+
+.sidebtn {
+    align-self: center;
+    font-size: 30px;
+    /* transition: 0.4s linear; */
+}
+
+.active {
+
+    /* display: block; */
+    opacity: 1;
+    visibility: visible;
+    /* color: #e70000; */
+    top: 100%;
+}
+.rightsideimg{
+    position: absolute;
+    width: 100%;
+    height: max-content;
+    top: 100%;
+    left: 100%;
+    transition: 0.4s linear;
+    opacity: 0;
+    visibility: hidden;
+}
+.sidebar_right{
+    width: 390px;
+    height: max-content;
+    
+    left: 25%;
+    top: 10%;
+    position: absolute;
+    transition: 0.4s linear;
+    opacity: 1;
+    visibility: visible;
+}
+.colorshow{
+    color: red;
+    font-size: 30px;
+}
+.closexmark{
+    font-size: 35px;
+    color: #0717ff;
+    cursor: pointer;
+    position: absolute;
+    left: 91%;
+    top: 20%;
+    
+   opacity: 0;
+    
+    visibility: hidden;
+}
+.xmarksow_1{
+    transition: 3s;
+   visibility: visible;
+   opacity: 1;
+}
+
+.settingbar{
+    width: 500px;
+    height: 750px;
+    background-color: #F8F9FA;
+    position: absolute;
+    left: 100%;
+    top: 0%;
+    position: relative;
+    top: -70px;
+    
+    transition: 0.5s linear;
+    
+
+}
+.settingbarshow{
+    visibility: visible;
+    left: 63%;
+    top: -70px;
+    transition: 0.5s linear;
+}
+.settingicon{
+    font-size: 30px;
+    top: 60%;
+    left: -30%;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: rgb(247, 185, 36);
+    padding: 10px;
+    position: absolute;
+}
+.heading{
+    width: 100%;
+    height: 10%;
+    border: 1px solid #000;
+}
+.container_box{
+    width: 90%;
+    height: 80%;
+    /* position: absolute; */
+    
+    display: flex;
+    gap: 30px;
+    flex-direction: column;
+    justify-content: center;
+    border: 1px solid #000;
+}
+.headingh4{
+    width: 100%;
+    height: 7%;
+    font-size: 20px;
+    color: #495057;
+    border-bottom: 1px solid black;
+    padding-left: 30px;
+    padding-top: 7px;
+}
+.allbtn{
+    border: 1px solid gray;
+    margin-top: 20px;
+    width: 470px;
+    position: relative;
+    left: 20px;
+    margin-bottom: 20px;
+    padding: 20px;
+}
+.buton_box{
+    width: 468px;
+    height: 12%;
+    /* align-self: center; */
+    display: flex;
+    justify-content: center;
+    border-bottom: 1px solid #000;
+    margin-left: -20px;
+}
+.btnside{
+    width: 30%;
+    height: 100%;
+    display: flex;
+    margin-bottom: 20px;
+    /* justify-content: center; */
+    /* align-self: center; */
+    /* border: 1px solid #0a0a0a; */
+}
+.textside{
+    width: 60%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    /* border: 1px solid #000; */
+}
+.textside p{
+    font-size: 16px;
+    position: absolute;
+    top: 20%;
+    left: 21%;
+    color: #a7abad;
+    
+}
+.textside h4{
+    font-size: 16px;
+    color: #393c3d;
+    display: flex;
+    position: absolute;
+    left: 100px;
+    
+}
+.textside2 h4{
+    font-size: 16px;
+    color: #393c3d;
+    display: flex;
+    position: absolute;
+    left: 100px;
+    top: 44%;
+    
+}
+.textside3 h4{
+    font-size: 16px;
+    color: #393c3d;
+    display: flex;
+    position: absolute;
+    left: 83px;
+    top: 28%;
+    
+}
+.textside2 p{
+    font-size: 16px;
+    color: #a7abad;
+    position: relative;
+    top: 50%;
+    left: -23%;
+}
+.textside3 p{
+    font-size: 16px;
+    color: #a7abad;
+    position: relative;
+    top: 100%;
+    left: -38%;
+}
+.fixdbtn{
+    align-self: center;
+    width: 150px;
+    height: 50px;
+    border-radius: 5px;
+    font-size: 17px;
+    border: none;
+    display: flex;
+    justify-content: center;
+
+}
+.btnmain{
+    width: 60px;
+    height: 35px;
+    border-radius: 4px;
+    align-self: center;
+    position: relative;
+    overflow: hidden;
+    right: 0%;
+    background-color: gray;
+}
+.buton_1{
+    width: 60px;
+    height: 35px;
+    border-radius: 4px;
+    align-self: center;
+    color: white;
+    position: absolute;
+    /* border: none; */
+    background-color: #31A66A;
+    left: 0;
+    top: 0;
+    transition: .4s linear;
+
+}
+.buton_2{
+    width: 60px;
+    height: 35px;
+    border-radius: 4px;
+    align-self: center;
+    color: white;
+    position: absolute;
+    /* border: none; */
+    left: 80px;
+    top: 0;
+    transition: .4s linear;
+    background-color: #DBDBDB;
+}
+.left{
+    left: 80px;  
+    transition: .4s linear;
+
+}
+.leftplus{
+    left: 0px ;
+    transition: .4s linear;
+
+    
+}
+.whitediv{
+    width: 10px;
+    height: 100%;
+    background-color: white;
+    right: 0;
+    top: 0;
+    border-radius: 2px;
+    position: absolute;
+}
+.whitediv_2{
+    width: 10px;
+    height: 100%;
+    background-color: white;
+    left:0;
+    top: 0;
+    border-radius: 2px;
+    position: absolute; 
+}
+.buton_box1{
+    width: 468px;
+    height: 12%;
+    /* align-self: center; */
+    display: flex;
+    justify-content: center;
+    border-bottom: 1px solid black;
+    margin-left: -20px;
+    padding: 10px;
+}
+.btnside1{
+    width: 30%;
+    height: 100%;
+    display: flex;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    /* justify-content: center; */
+    /* align-self: center; */
+    /* border: 1px solid #0a0a0a; */
+}
+.btnmain1{
+    width: 60px;
+    height: 35px;
+    border-radius: 4px;
+    align-self: center;
+    position: relative;
+    overflow: hidden;
+    background-color: gray;
+}
+.buton_3{
+    width: 60px;
+    height: 35px;
+    border-radius: 4px;
+    align-self: center;
+    color: white;
+    position: absolute;
+    /* border: none; */
+    background-color: #31A66A;
+    left: 0;
+    top: 0;
+    transition: .4s linear;
+
+}
+.whitediv01{
+    width: 10px;
+    height: 100%;
+    background-color: white;
+    right: 0;
+    top: 0;
+    border-radius: 2px;
+    position: absolute;
+}
+.whitediv_02{
+    width: 10px;
+    height: 100%;
+    background-color: white;
+    left:0;
+    top: 0;
+    border-radius: 2px;
+    position: absolute; 
+}
+.buton_4{
+    width: 60px;
+    height: 35px;
+    border-radius: 4px;
+    align-self: center;
+    color: white;
+    position: absolute;
+    /* border: none; */
+    left: 80px;
+    top: 0;
+    transition: .4s linear;
+    background-color: #DBDBDB;
+}
+
+.left2{
+    left: 80px;  
+    transition: .4s linear;
+
+}
+.leftplus2{
+    left: 0px ;
+    transition: .4s linear;
+
+    
+}
+.buton_box10{
+    width: 110%;
+    height: 12%;
+    position: relative;
+    padding-bottom: 20px;
+    /* align-self: center; */
+    display: flex;
+    justify-content: center;
+    /* border: 1px solid #06bdf5;*/
+}
+.btnside10{
+    width: 40%;
+    height: 100%;
+    display: flex;
+    position: relative;
+    top: 10px;
+    left: 5px;
+    /* justify-content: center; */
+    /* align-self: center; */
+    /* border: 3px solid #bff10b;*/
+}
+.btnmain10{
+    width: 65px;
+    height: 35px;
+    border-radius: 4px;
+    align-self: center;
+    position: relative;
+    top: 10px;
+    overflow: hidden;
+    background-color: #DBDBDB;
+}
+.buton_30{
+    width: 65px;
+    height: 35px;
+    border-radius: 4px;
+    align-self: center;
+    color: white;
+    position: absolute;
+    /* border: none; */
+    background-color: #DBDBDB;
+    left: 0;
+    top: 0;
+    transition: .4s linear;
+
+}
+.whitediv010{
+    width: 10px;
+    height: 100%;
+    background-color: white;
+    right: 0;
+    top: 0;
+    border-radius: 3px;
+    position: absolute;
+}
+.buton_40{
+    width: 65px;
+    height: 35px;
+    border-radius: 4px;
+    align-self: center;
+    color: white;
+    position: absolute;
+    /* border: none; */
+    left: 80px;
+    top: 0;
+    transition: .4s linear;
+    background-color: #31A66A;
+}
+.whitediv_020{
+    width: 10px;
+    height: 100%;
+    background-color: white;
+    left:0;
+    top: 0;
+    border-radius: 2px;
+    position: absolute; 
+}
+.left20{
+    left: 80px;  
+    transition: .4s linear;
+
+}
+.leftplus20{
+    left: 0px ;
+    transition: .4s linear;
+
+    
+}
+.colors{
+    border: 1px solid gray;
+    height: 250px;
+    width: 95%;
+    margin-top: 20px;
+    margin-left: 15px;
+    border-radius: 5px;
+    text-align: center;
+    position: relative;
+}
+.colors h3{
+    color: #06bdf5;
+}
+
+
+.headeropt{
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+}
+.headername{
+    font-size: 20px;
+}
+.restbtn{
+    background-color: #000;
+    color: white;
+    padding: 7px;
+    border: none;
+    border-radius: 20px;
+    font-weight: 600;
+}
+.allcolors{
+        align-items: center;
+        position: relative;
+        top: 10%;
+        left: 15%;
+}
+.allcolorsafter{
+    background-color: gray;
+    width: 85%;
+    height: 1px;
+    position: relative;
+    top: 25%;
+    left: 7%;
+}
+
+.color1{
+    background-color: #3F6AD8;
+    padding: 3px;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    left: 20px;
+}
+.color2{
+    background-color: #6C757D;
+    padding: 3px;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    left: 50px;
+}
+.color3{
+    background-color: #3AC47D;
+    padding: 3px;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    left: 80px;
+}
+.color4{
+    background-color: #16AAFF;
+    padding: 3px;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    left: 110px;
+}
+.color5{
+    background-color: #F7B924;
+    padding: 3px;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    left: 140px;
+}
+.color6{
+    background-color: #d92550;
+    padding: 3px;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    left: 170px;
+}
+.color7{
+    background-color: #EEEEEE;
+    padding: 3px;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    left: 200px;
+}
+.color8{
+    background-color: #343A40;
+    padding: 3px;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    left: 230px;
+}
+.color9{
+    background-color: #7C7987;
+    padding: 3px;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    left: 260px;
+}
+.color10{
+    background-color: #794C8A;
+    padding: 3px;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    left: 290px;
+}
+.allcolors2{
+    position: relative;
+    top: 35%;
+    left: 15%;
+}
+.allcolors3{
+    position: relative;
+    top: 50%;
+    left: 15%;
+}
+.allcolors4{
+    position: relative;
+    top: 65%;
+    left: 35%;
+}
+
+
+</style>
+
+<body>
+    <div class="main">
+    <div class="navbar">
+        <div class="bar_left">
+            <div class="logo_parent">
+                <img class="img" src="logo-inverse.png" alt="">
+                <i class="fa-solid fa-bars bars"></i>
+                
+            </div>
+           
+            <div class="searchdiv">
+                <i class="fa-solid fa-magnifying-glass search"></i>
+                <div class="circle_background"></div>
+                <input class="searchbar" type="text" placeholder="Search">
+                <i class="fa-solid fa-xmark cross"></i>
+
+                <div class="menu menuvisible">
+
+                    <ul class="menuul">
+                        <li class="list sp "><i class="fa-solid fa-gift"></i> Maga Menu</li>
+                        <li class="list sp"><i class="fa-solid fa-gear"></i> Setting</li>
+                        <li class="list sp"><i class="fa-solid fa-box"></i> Project</li>
+
+                    </ul>
+                    <div class="dropdown drp" id="drop_1">
+                        <div class="row_box1-cont">
+                            <div class="row_box1">
+                                <h4>Over View</h4>
+                                <li><i class="fa-solid fa-gift"></i> Contact</li>
+                                <li><i class="fa-solid fa-gift"></i> Contact</li>
+                                <li><i class="fa-solid fa-gift"></i> Contact</li>
+                                <li><i class="fa-solid fa-gift"></i> Contact</li>
+                                <li><i class="fa-solid fa-gift"></i> Contact</li>
+                            </div>
+                            <div class="row_box1">
+                                <h4>Over View</h4>
+                                <li><i class="fa-solid fa-gift"></i> Contact</li>
+                                <li><i class="fa-solid fa-gift"></i> Contact</li>
+                                <li><i class="fa-solid fa-gift"></i> Contact</li>
+                                <li><i class="fa-solid fa-gift"></i> Contact</li>
+                                <li><i class="fa-solid fa-gift"></i> Contact</li>
+
+                            </div>
+                        </div>
+
+
+                    </div>
+                    <div class="dropdown drp" id="drop_2">
+                        <div class="setting_drop">
+                            <div class="row_box2">
+                                <h4>Over View</h4>
+                                <li><i class="fa-solid fa-gift"></i> Contact</li>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dropdown drp" id="drop_3">
+                        <div class="setting_drop">
+                            <div class="row_box2">
+                                <h4>Over View</h4>
+                                <li><i class="fa-solid fa-gift"></i> Contact</li>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="bar_right">
+            <div class="notification_circles">
+
+                <div class="circle_1 sp " id="cir_1">
+                    <i class="fa-solid fa-grip circleicon"></i>
+                </div>
+                <div class="circle_1 sp" id="cir_2">
+                    <i class="fa-solid fa-bell circleicon"></i>
+                </div>
+                <div class="circle_1 sp" id="cir_3">
+                    <i class="fa-solid fa-globe circleicon"></i>
+                </div>
+                <div class="circle_1 sp" id="cir_4">
+                    <i class="fa-regular fa-user circleicon"></i>
+                </div>
+                <div class="dropdown_1 drp" id="drop2_1">
+                    <img src="menu1.png" alt="">
+                </div>
+                <div class="dropdown_1 drp" id="drop2_2">
+                    <img src="menu2.png" alt="">
+
+                </div>
+                <div class="dropdown_1 drp" id="drop2_3">
+                    <img src="menu3.png" alt="">
+
+                </div>
+                <div class="dropdown_1 drp" id="drop2_4">
+                    <img src="menu4.png" alt="">
+
+                </div>
+
+
+
+            </div>
+
+            <!-- profile imge -->
+
+            <div class="profile sp">
+                <div class="imge_sec">
+                    <img class="imgeadj" src="1.jpg" alt="">
+                    <div class="profile_drop ">
+                        <i class="fa-solid fa-angle-down arrowdown"></i>
+
+                    </div>
+
+
+                    <div class="name">
+
+                        <h4>Alina Mclourd</h4>
+                        <p>VP People Manager</p>
+                    </div>
+                </div>
+            </div>
+            <div class="dropdown_2 drp" id="drop2_5">
+                <img src="profilepic.png" alt="">
+            </div>
+            <!-- side btn bar  -->
+            <div class="sidebar_button">
+                <div class="linevertical"></div>
+                <i class="fa-solid fa-bars sidebtn"></i>
+            </div>
+            <div class="sidebar_right">
+                <img class="rightsideimg" src="saidebar.png" alt="">
+            </div>
+            <i class="fa-regular fa-circle-xmark closexmark"></i>
+        </div>
+    </div>
+    <div class="settingbar">
+        <div class="headingh4">
+            Layout Option
+            <h4></h4>
+        </div>
+        <div class="allbtn">
+        <div class="buton_box">
+            <div class="btnside">
+                <div class="btnmain">
+                    <button class="buton_1">On
+                        <div class="whitediv"></div>
+                    </button>
+                    <button class="buton_2">Off
+                        <div class="whitediv_2"></div>
+                    </button>
+                </div>            
+            </div>
+            <div class="textside">
+                <h4>Fixed Header</h4>
+                <p>Makes the header top fixed, always visible!</p>
+            </div>
+        </div>
+
+        
+
+        <div class="buton_box1">
+            <div class="btnside1">
+                <div class="btnmain1">
+                    <button class="buton_3">On
+                        <div class="whitediv01"></div>
+                    </button>
+                    <button class="buton_4">Off
+                        <div class="whitediv_02"></div>
+                    
+                    </button>
+                   
+                </div>            
+            </div>
+            <div class="textside2">
+                <h4>Fixed Header</h4>
+                <p>Makes the header top fixed, always visible!</p>
+            </div>
+        </div>
+
+
+
+
+        <div class="buton_box10">
+            <div class="btnside10">
+                <div class="btnmain10">
+                    <button class="buton_30">Off
+                        <div class="whitediv010"></div>
+                    </button>
+                    <button class="buton_40">On
+                        <div class="whitediv_020"></div>
+                    
+                    </button>
+                   
+                </div>            
+            </div>
+            <div class="textside3">
+                <h4>Fixed Header</h4>
+                <p>Makes the header top fixed, always visible!</p>
+            </div>
+        </div>
+    </div>
+       
+        <div class="headeropt">
+            <div class="headername">Header Options</div>
+            <div><button class="restbtn">Restore Options</button></div>
+        </div>
+        
+        <div class="colors ">
+           <h3>Choose Color Scheme</h3>
+            <div class="allcolors  ">
+           <div class="color1 allcolorsprops"></div>
+           <div class="color2 allcolorsprops"></div>
+           <div class="color3 allcolorsprops"></div>
+           <div class="color4 allcolorsprops"></div>
+           <div class="color5 allcolorsprops"></div>
+           <div class="color6 allcolorsprops"></div>
+           <div class="color7 allcolorsprops"></div>
+           <div class="color8 allcolorsprops"></div>
+           <div class="color9 allcolorsprops"></div>
+           <div class="color10 allcolorsprops"></div>
+        </div>
+        <div class="allcolorsafter"></div>
+        <div class="allcolors2">
+            <div class="color1 allcolorsprops"></div>
+           <div class="color2 allcolorsprops"></div>
+           <div class="color3 allcolorsprops"></div>
+           <div class="color4 allcolorsprops"></div>
+           <div class="color5 allcolorsprops"></div>
+           <div class="color6 allcolorsprops"></div>
+           <div class="color7 allcolorsprops"></div>
+           <div class="color8 allcolorsprops"></div>
+           <div class="color9 allcolorsprops"></div>
+           <div class="color10 allcolorsprops"></div>
+        </div>
+        <div class="allcolors3">
+            <div class="color1 allcolorsprops"></div>
+           <div class="color2 allcolorsprops"></div>
+           <div class="color3 allcolorsprops"></div>
+           <div class="color4 allcolorsprops"></div>
+           <div class="color5 allcolorsprops"></div>
+           <div class="color6 allcolorsprops"></div>
+           <div class="color7 allcolorsprops"></div>
+           <div class="color8 allcolorsprops"></div>
+           <div class="color9 allcolorsprops"></div>
+           <div class="color10 allcolorsprops"></div>
+        </div>
+        <div class="allcolors4">
+            <div class="color1 allcolorsprops"></div>
+           <div class="color2 allcolorsprops"></div>
+           <div class="color3 allcolorsprops"></div>
+           <div class="color4 allcolorsprops"></div>
+        </div>
+    </div>
+        <!-- <div class="container_box"></div> -->
+        <i class="fa-solid fa-gear fa-spin settingicon"></i>
+        
+    </div>
+</div>
+<div class="navbar">
+    <div class="logo_div">
+        <!-- <i class="fa-solid fa-bars bars"></i> -->
+    </div>
+</div>
+<div class="slide_small">
+    <i class="fa-solid fa-rocket"></i>
+    <i class="fa-solid fa-window-maximize"></i>
+    <i class="fa-solid fa-table-columns"></i>
+    <i class="fa-regular fa-gem"></i>
+    <i class="fa-solid fa-car"></i>
+    <i class="fa-solid fa-display"></i>
+    <i class="fa-solid fa-chart-pie"></i>
+    <i class="fa-solid fa-signs-post"></i>
+    <i class="fa-solid fa-futbol"></i>
+    <i class="fa-regular fa-id-card"></i>
+    <i class="fa-regular fa-lightbulb"></i>
+    <i class="fa-solid fa-gamepad"></i>
+</div>
+<div class="slide_main">
+    <h3>MENU</h3>
+    <ul>
+        <li>
+            <i class="fa-solid fa-rocket" id="rock"> <a href="#"> Dashboards  <div class="dashboardsarr "> <i class="  fa-solid fa-angle-down"></i></div> </a> </i>
+            <div class="dashboardmenu">
+                <ul>
+                        <li><a href="#" >Analytics</a></li>
+                        <li><a href="#"> Commerce</a></li>
+                        <li><a href="#"> Sales</a></li>
+                  
+                       <li><a href="#">Minimal <div class="minimalarr"> <i class="  fa-solid fa-angle-down"></i>
+                    </div> </a></li>
+                    <div class="dashboardmenu1">
+                        <ul>
+                            <li><a href="#">Version 1</a></li>
+                            <li><a href="#">Version 2</a></li>
+                        </ul>
+                    </div>
+                       <li><a href="#">CRM</a></li>
+                </ul>
+               </div>
+
+               
+               <i class="fa-solid fa-window-maximize" id="page"> <a href="#"> Pages <div class="pagearr"> <i class="  fa-solid fa-angle-down"></i></div> </a> </i>
+            <div class="pagesmenu">
+                <ul>
+                       <li><a href="#" >Login</a></li>
+                       <li><a href="#">Login Login Boxed</a></li>
+                       <li><a href="#"> Register</a></li>
+                       <li><a href="#"> Register Boxed</a></li>
+                       <li><a href="#">Forgot Password</a></li>
+                       <li><a href="#"> Forgot Password Boxed</a></li>
+                       
+                    </div> </a></li>
+                    <i class="fa-solid fa-table-columns" id="applicate"> <a href="#"> Applications <div class="applicationsarr"> <i class="  fa-solid fa-angle-down"></i></div> </a> </i>
+            <div class="applicationsmenu">
+                <ul>
+                       <li><a href="#" >Mailbox</a></li>
+                       <li><a href="#">Chat</a></li>
+                       <li><a href="#">FAQ Section</a></li>
+                       <li><a href="#"> Forums <div class="forumsarr"> <i class="  fa-solid fa-angle-down"></i>
+                       </div> </a></li>
+                       <div class="applicationsmenu1">
+                           <ul>
+                               <li><a href="#">Forum Listing</a></li>
+                               <li><a href="#">Forum Threads</a></li>
+                               <li><a href="#">Forum Discussion</a></li>
+                           </ul>
+                       </div>
+                       
+                    </div> </a></li>
+
+        </li>
+    </ul>
+    
+    <h3>UI Components</h3>
+    <i class="fa-regular fa-gem"> <a href="#">Elements </a></i>
+    <i class="fa-solid fa-car"> <a href="#"> Components </a></i>
+    <i class="fa-solid fa-display"> <a href="#"> Tables </a></i>
+    <h3>Dashboard Widgets</h3>
+    <i class="fa-solid fa-chart-pie"> <a href="#"> Chart Boxes 1 </a></i>
+    <i class="fa-solid fa-signs-post"> <a href="#"> Chart Boxes 2 </a></i>
+    <i class="fa-solid fa-futbol"> <a href="#"> Chart Boxes 3 </a></i>
+    <i class="fa-regular fa-id-card"> <a href="#"> Profile Boxes </a></i>
+    <h3>Forms</h3>
+    <i class="fa-regular fa-lightbulb"> <a href="#"> Elements </a></i>
+    <i class="fa-solid fa-gamepad">  <a href="#">Widgets </a></i>
+</div>
+    
+    <script>
+
+
+        // let bars = document.querySelector(".bars")
+        // let logo = document.querySelector(".img")
+        // let side = document.querySelector(".sidee")
+        // let logo_parent = document.querySelector(".logo_parent")
+        // let slider_bar = document.querySelector(".slider_bar_left")
+        // // let serchicon = document.querySelector(".search")
+
+        // bars.addEventListener("click", function () {
+        //     if (bars.classList.contains("fa-bars")) {
+        //         bars.classList.remove("fa-bars")
+        //         bars.classList.add("fa-xmark")
+        //         logo.classList.add("none")
+        //         side.classList.add("sideeshow")
+        //         logo_parent.classList.add("width")
+        //     }
+        //     else {
+        //         bars.classList.remove("fa-xmark")
+        //         bars.classList.add("fa-bars")
+        //         logo.classList.remove("none")
+        //         side.classList.remove("sideeshow")
+        //         logo_parent.classList.remove("width")
+        //     }
+        // })
+
+        const bars = document.querySelector(".bars");
+        const slide_main = document.querySelector(".slide_main");
+        const slide_small = document.querySelector(".slide_small");
+       
+
+
+        bars.addEventListener("click", () => {
+
+            if (bars.classList.contains("fa-bars")) {
+                bars.classList.remove("fa-bars");
+                bars.classList.add("fa-xmark");
+                slide_main.classList.add("Left");
+                
+                
+
+                slide_small.addEventListener("mouseenter", handleMouseEnter);
+                slide_main.addEventListener("mouseleave", handleMouseLeave);
+            } else {
+                bars.classList.add("fa-bars");
+                bars.classList.remove("fa-xmark");
+                slide_main.classList.remove("Left");
+               
+
+                slide_small.removeEventListener("mouseenter", handleMouseEnter);
+                slide_main.removeEventListener("mouseleave", handleMouseLeave);
+            }
+        });
+
+        function handleMouseEnter() {
+            slide_main.classList.remove("Left");
+        }
+
+        function handleMouseLeave() {
+            slide_main.classList.add("Left");
+        }
+
+
+        const dashboard = document.querySelector("#rock");
+        const dashboardmenu = document.querySelector(".dashboardmenu");
+        
+
+        dashboard.addEventListener("click", function(){
+            dashboardmenu.classList.toggle("dashboardmenuactive")
+           
+        })
+
+
+        const pages = document.querySelector("#page");
+        const pagesmenu = document.querySelector(".pagesmenu");
+        
+
+            pages.addEventListener("click", function(){
+                pagesmenu.classList.toggle("pagesmenuactive")
+        })
+        const application = document.querySelector("#applicate");
+        const applicationsmenu = document.querySelector(".applicationsmenu");
+        
+
+            application.addEventListener("click", function(){
+                applicationsmenu.classList.toggle("applicationactive")
+        })
+
+
+        let search = document.querySelector(".search")
+        let searchbar = document.querySelector(".searchbar")
+        let cross = document.querySelector(".cross")
+        let menu_1 = document.querySelector(".menu")
+
+
+        search.addEventListener("click", function () {
+
+            if (search.classList.contains("search")) {
+
+                search.classList.add("search_2")
+                searchbar.classList.add("visible")
+                cross.classList.add("crossvisible")
+                menu_1.classList.remove("menuvisible")
+
+                // search.classList.add("visible")
+            }
+
+            else {
+
+                search.classList.remove("search_2")
+                searchbar.classList.remove("visible")
+                cross.classList.remove("crossvisible")
+                menu_1.classList.add("menuvisible")
+
+                // search.classList.remove("visible")
+            }
+        })
+
+        let cros = document.querySelector(".cross")
+        let menu = document.querySelector(".menu")
+
+        cros.addEventListener("click", function () {
+            if (cros.classList.contains("crossvisible")) {
+                cros.classList.remove("color")
+                searchbar.classList.remove("visible")
+                search.classList.remove("search_2")
+                cros.classList.remove("crossvisible")
+                menu.classList.add("menuvisible")
+
+            }
+            else {
+                cros.classList.add("color")
+                searchbar.classList.add("visible")
+                menu.classList.remove("menuvisible")
+
+            }
+        })
+
+
+        let List = document.querySelectorAll(".sp")
+        let dropdown = document.querySelectorAll(".drp")
+        console.log(dropdown);
+
+
+
+
+
+
+
+        for (let i = 0; i < List.length; i++) {
+            // console.log(List[i]);
+
+
+            List[i].addEventListener("click", function () {
+                // console.log(i);
+
+                if (dropdown[i].classList.contains("active")) {
+                    dropdown[i].classList.remove("active")
+                    // console.log(dropdown);
+
+                }
+                else {
+                    for (let j = 0; j < List.length; j++) {
+                        dropdown[j].classList.remove("active")
+                       
+                    }
+                    dropdown[i].classList.add("active")
+
+                    // console.log(dropdown);
+
+                }
+            })
+        }
+
+        // left side bar butn 
+
+        let btn = document.querySelector(".sidebtn")
+        let rightbar = document.querySelector(".rightsideimg")
+        let closexmark1 = document.querySelector(".closexmark")
+
+
+        btn.addEventListener("click" , function(){
+            closexmark1.classList.add("xmarksow_1")
+            rightbar.classList.add("sidebar_right")
+          btn.classList.add("colorshow")
+
+           
+        })
+
+        let closexmark = document.querySelector(".closexmark")
+        let sidebar_right = document.querySelector(".rightsideimg")
+
+        closexmark.addEventListener("click", function(){
+            if(closexmark.classList.contains("closexmark")){
+                sidebar_right.classList.remove("sidebar_right")
+                closexmark.classList.remove("xmarksow_1")
+            }
+            else{
+
+                // sidebar_right.classList.remove("sidebar_right")
+
+            }
+        })
+
+
+        let settingbar = document.querySelector(".settingbar")
+        let settingicon = document.querySelector(".settingicon")
+        
+        settingicon.addEventListener("click" , function(){
+            settingbar.classList.toggle("settingbarshow")
+        })
+
+
+        // button setting on off 
+
+        let buton_1 = document.querySelector(".buton_1")
+        let buton_2 = document.querySelector(".buton_2")
+        let btnmain = document.querySelector(".btnmain")
+
+        btnmain.addEventListener("click", function(){
+            buton_1.classList.toggle("left")
+            console.log("java")
+
+            buton_2.classList.toggle("leftplus")
+            // buton_2.classList.toggle("whitediv_2")
+
+            
+        })
+          // button2 setting on off 
+
+          let buton_3 = document.querySelector(".buton_3")
+        let buton_4 = document.querySelector(".buton_4")
+        let btnmain1 = document.querySelector(".btnmain1")
+
+        btnmain1.addEventListener("click", function(){
+            buton_3.classList.toggle("left2")
+            console.log("java2")
+
+            buton_4.classList.toggle("leftplus2")
+        
+            console.log("java3")
+            // buton_2.classList.toggle("whitediv_2")
+
+            
+        })
+          // button3 setting on off 
+
+          let buton_30 = document.querySelector(".buton_30")
+        let buton_40 = document.querySelector(".buton_40")
+        let btnmain10 = document.querySelector(".btnmain10")
+
+        btnmain10.addEventListener("click", function(){
+            buton_30.classList.toggle("left20")
+            // console.log("java20")
+
+            buton_40.classList.toggle("leftplus20")
+        
+            // console.log("java30")
+            // buton_2.classList.toggle("whitediv_2")
+
+            
+        })
+        let color = document.querySelectorAll(".allcolorsprops")
+        let navebar = document.querySelector(".navbar")
+        console.log(color);
+        for(let colors = 0 ; colors<color.length ; colors++)
+
+        color[colors].addEventListener("click" , function(){
+            let color = getComputedStyle(this).backgroundColor
+            // console.log("newcolor");
+            let newcolor = getComputedStyle(this)
+            navebar.style.backgroundColor = color
+            
+        })
+    </script>
+</body>
+
+</html>
