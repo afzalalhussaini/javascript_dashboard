@@ -316,11 +316,18 @@
     display: flex;
     gap: 25px;
     align-self: center;
+    cursor: pointer;
 }
 
 .menu ul li {
     font-size: 20px;
 }
+/* .list_sp i{
+    font-size: 12px;
+    color: #7695E3;
+    opacity: .0.1
+
+} */
 
 .fa-box {
     font-size: 20px;
@@ -657,6 +664,86 @@
 .name p {
     font-size: 14px;
     align-self: center;
+}
+.calender{
+    position: absolute;
+    background-color: #2955C8;
+    color: #F8F9FA;
+    top: 25%;
+    left: 80%;
+    padding: 7px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.notifications{
+    position: absolute;
+    /* position: fixed; */
+    top: 500px;
+    right: 400px;
+}
+.taost{
+  position: relative;
+  padding: 10px;
+  color: #fff;
+  margin-bottom: 10px;
+  width: 400px;
+  display: grid;
+  grid-template-columns: 70px 1fr 70px;
+  border-radius: 5px;
+  --color: #0abf30;
+  background-image: 
+        linear-gradient(
+            to right, #0abf3055, #22242f 30%
+        );
+    animation: show 0.3s ease 1 forwards;
+        }
+.taost i{
+    color: var(--color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: x-large;
+}
+.taost .title{
+    font-size: x-large;
+    font-weight: bold;
+ }
+.taost span, .taost i:nth-child(3){
+    color: #fff;
+    opacity: 0.6;
+}
+
+@keyframes show{
+   0%{
+       transform: translateX(100%);
+   }
+   40%{
+       transform: translateX(-5%);
+   }
+   80%{
+       transform: translateX(0%);
+   }
+   100%{
+       transform: translateX(-10%);
+    }
+}
+.taost::before{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-color: var(--color);
+    width: 100%;
+    height: 3px;
+    content: "";
+    box-shadow: 0 0 10px var(--color);
+    animation: timeOut 5s linear 1 forwards;
+}
+
+@keyframes timeOut{
+   to{
+         width: 0;
+    }
 }
 
 .dropdown_2 {
@@ -1288,6 +1375,20 @@
     left: 35%;
 }
 
+.detailsmain{
+    /* width: 65%; */
+    /* height: 300px; */
+    position: relative;
+    top: -510px;
+    left: 0%;
+    /* background-color: #fff; */
+    /* box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; */
+    
+}
+.detailsmain img{
+    width: 95%;
+}
+
 
 </style>
 
@@ -1412,6 +1513,24 @@
                     </div>
                 </div>
             </div>
+
+
+
+
+
+
+            <div class="calender">
+                <i class="fa-solid fa-calendar"></i>
+            </div>
+            <div class="notifications">
+           
+            </div>
+
+
+
+
+
+
             <div class="dropdown_2 drp" id="drop2_5">
                 <img src="profilepic.png" alt="">
             </div>
@@ -1553,6 +1672,10 @@
     <div class="logo_div">
         <!-- <i class="fa-solid fa-bars bars"></i> -->
     </div>
+    <!-- body div start -->
+     <div class="detailsmain">
+       <img src="gare.png" alt="" srcset="">
+    </div> 
 </div>
 <div class="slide_small">
     <i class="fa-solid fa-rocket"></i>
@@ -1913,6 +2036,37 @@
             navebar.style.backgroundColor = color
             
         })
+
+        let calenders = document.querySelector(".calender");
+        let notifications = document.querySelector(".notifications");
+
+
+
+        calenders.addEventListener("click", function(){
+            let newToast = document.createElement("div");
+            newToast.innerHTML = `<div class="taost ${type}">
+                <i class="${icon}"></i>
+                <div class="content">
+                    <div class="title">${title}</div>
+                    <span>${text}</span>
+                </div>
+                <i class="fa-solid fa-xmark" onclick = "(this.parentElement).remove()" ></i>
+            </div>`;
+
+
+            notifications.appendChild(newToast);
+
+            newToast.timeOut = setTimeout(
+                ()=>newToast.remove(), 5000
+            )
+        })
+
+            let type = "Example Toastr";
+            let icon = "fa-solid fa-circle-info";
+            let title = "Example Toastr";
+            let text = "You don't have any new items in your calendar today!";
+
+           
     </script>
 </body>
 
